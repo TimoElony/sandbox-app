@@ -1,9 +1,6 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
 
 
 declare global {
@@ -13,10 +10,9 @@ declare global {
       [key: string]: any;
     };
   }
-}
+} 
 
 export default function Funktionstest() {
-  const [journey, setJourney] = useState<boolean>(false);
   useEffect(() => {
     // Only run on client
     const script = document.createElement("script");

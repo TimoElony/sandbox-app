@@ -27,7 +27,7 @@ export default function Home() {
             </a>
           </nav>
           <p className="max-w-sm text-lg leading-7 text-zinc-600 dark:text-zinc-400">
-            Diese Applikation dient zum Testen der epilot Schnittstellen.
+            Diese Applikation dient zum Testen der Schnittstellen.
           </p>
         </div>
       </main>
