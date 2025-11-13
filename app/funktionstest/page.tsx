@@ -15,7 +15,7 @@ declare global {
   }
 }
 
-export default function Funktion() {
+export default function Funktionstest() {
   const [journey, setJourney] = useState<boolean>(false);
   useEffect(() => {
     // Only run on client
@@ -51,18 +51,6 @@ export default function Funktion() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          src="/loomia.png"
-          alt="Loomia logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <nav>
-          <Link href="/">Zurück zur Startseite</Link>
-        </nav>
-
-        {/* Container for the embedded journey */}
         <div
           id="epilot-journey-b2895790-b43f-11f0-aba3-4b60a66e3b8b"
           style={{ width: "100%", textAlign: "left" }}
