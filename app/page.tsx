@@ -20,7 +20,11 @@ export default function Home() {
             Testumgebung
           </h1>
           <nav>
-            <Link href="/funktionstest">Funktionstest</Link>
+            <a href="/funktionstest" onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = '/funktionstest';
+                }}>Funktionstest
+            </a>
           </nav>
           <p className="max-w-sm text-lg leading-7 text-zinc-600 dark:text-zinc-400">
             Diese Applikation dient zum Testen der epilot Schnittstellen.

@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+
 
 declare global {
   interface Window {
@@ -15,6 +16,7 @@ declare global {
 }
 
 export default function Funktion() {
+  const [journey, setJourney] = useState<boolean>(false);
   useEffect(() => {
     // Only run on client
     const script = document.createElement("script");
@@ -45,22 +47,6 @@ export default function Funktion() {
     };
   }, []);
 
-  const startJourney = () => {
-    console.log("Funktionstest gestartet");
-    if (window.__epilot) {
-      window.__epilot.init([
-        {
-          journeyId: "b2895790-b43f-11f0-aba3-4b60a66e3b8b",
-          mode: "inline",
-          scrollToTop: true,
-          topBar: true,
-          lang: "de",
-        },
-      ]);
-    } else {
-      console.warn("__epilot not loaded yet");
-    }
-  };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -75,10 +61,6 @@ export default function Funktion() {
         <nav>
           <Link href="/">Zurück zur Startseite</Link>
         </nav>
-
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <Button onClick={startJourney}>Funktionstest Button</Button>
-        </div>
 
         {/* Container for the embedded journey */}
         <div
