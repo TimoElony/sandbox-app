@@ -1,7 +1,11 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
+  const [showJourneyModal, setShowJourneyModal] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-green-50">
       {/* Header/Navigation */}
@@ -86,9 +90,10 @@ export default function Home() {
               description="Ärzte, Apotheken und medizinische Versorgung direkt vor Ort."
             />
             <ServiceCard
-              icon="🚌"
-              title="Verkehr"
-              description="Gut ausgebautes Verkehrsnetz mit Bus, Bahn und Radwegen."
+              icon="🌐"
+              title="Glasfaser"
+              description="Prüfen Sie die Verfügbarkeit von Glasfaseranschlüssen und bestellen Sie Ihr Internet-Paket."
+              onClick={() => setShowJourneyModal(true)}
             />
           </div>
         </div>
@@ -226,16 +231,67 @@ export default function Home() {
       <Link href="/funktionstest" className="hidden">
         Funktionstest
       </Link>
+
+      {/* Journey Modal */}
+      {showJourneyModal && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowJourneyModal(false)}
+        >
+          <div 
+            className="bg-white rounded-lg w-full max-w-4xl h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center p-4 border-b">
+              <h2 className="text-xl font-semibold">Glasfaser Verfügbarkeit prüfen</h2>
+              <button
+                onClick={() => setShowJourneyModal(false)}
+                className="text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              >
+                ×
+              </button>
+            </div>
+            <div className="flex-1 overflow-hidden">
+              <iframe
+                src="/funktionstest"
+                className="w-full h-full border-0"
+                title="Glasfaser Journey"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
-function ServiceCard({ icon, title, description }: { icon: string; title: string; description: string }) {
-  return (
-    <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 hover:shadow-lg transition">
+function ServiceCard({ icon, title, description, onClick }: { icon: string; title: string; description: string; onClick?: () => void }) {
+  const content = (
+    <>
       <div className="text-4xl mb-4">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
+      {onClick && (
+        <div className="mt-4">
+          <span className="text-green-600 font-semibold hover:text-green-700">
+            Jetzt prüfen →
+          </span>
+        </div>
+      )}
+    </>
+  );
+
+  if (onClick) {
+    return (
+      <button onClick={onClick} className="block w-full text-left bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 hover:shadow-lg transition cursor-pointer">
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 hover:shadow-lg transition">
+      {content}
     </div>
   );
 }
