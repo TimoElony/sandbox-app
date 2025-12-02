@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sandbox App",
-  description: "Testen der epilot Schnittstellen",
+  title: "Stadt Stadtname - Willkommen in unserer Gemeinde",
+  description: "Offizielle Website der Stadt Stadtname. Informationen zu Bürgerservice, Veranstaltungen, Kultur und mehr.",
 };
 
 export default function RootLayout({
