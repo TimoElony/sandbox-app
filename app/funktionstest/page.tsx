@@ -1,5 +1,5 @@
 'use client';
-
+ 
 import { useEffect, useState } from "react";
 
 
@@ -25,7 +25,7 @@ export default function Funktionstest() {
         console.log("epilot loaded");
         window.__epilot.init([
           {
-            journeyId: "b2895790-b43f-11f0-aba3-4b60a66e3b8b",
+            journeyId: "f5b86af0-b42c-11f0-b212-a166e80a4bb3",
             mode: "inline",
             scrollToTop: true,
             topBar: true,
@@ -48,7 +48,7 @@ export default function Funktionstest() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <div
-          id="epilot-journey-b2895790-b43f-11f0-aba3-4b60a66e3b8b"
+          id="epilot-journey-f5b86af0-b42c-11f0-b212-a166e80a4bb3"
           style={{ width: "100%", textAlign: "left" }}
         />
       </main>
