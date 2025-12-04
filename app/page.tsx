@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [showJourneyModal, setShowJourneyModal] = useState(false);
+  const [showHausanschlussModal, setShowHausanschlussModal] = useState(false);
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-green-50">
       {/* Header/Navigation */}
@@ -75,9 +76,10 @@ export default function Home() {
               description="Gepflegte Parks, Spielplätze und Naherholungsgebiete für die ganze Familie."
             />
             <ServiceCard
-              icon="🎭"
-              title="Kultur & Events"
-              description="Vielfältiges Kulturangebot mit regelmäßigen Veranstaltungen und Festen."
+              icon="🔌"
+              title="Hausanschluss beantragen"
+              description="Beantragen Sie Ihren Hausanschluss schnell und einfach online."
+              onClick={() => setShowHausanschlussModal(true)}
             />
             <ServiceCard
               icon="📚"
@@ -232,7 +234,7 @@ export default function Home() {
         Funktionstest
       </Link>
 
-      {/* Journey Modal */}
+      {/* Journey Modal - Glasfaser */}
       {showJourneyModal && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
@@ -256,6 +258,36 @@ export default function Home() {
                 src="/funktionstest"
                 className="w-full h-full border-0"
                 title="Glasfaser Journey"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Journey Modal - Hausanschluss */}
+      {showHausanschlussModal && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+          onClick={() => setShowHausanschlussModal(false)}
+        >
+          <div 
+            className="bg-white rounded-lg w-full max-w-4xl h-[90vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center p-4 border-b">
+              <h2 className="text-xl font-semibold">Hausanschluss beantragen</h2>
+              <button
+                onClick={() => setShowHausanschlussModal(false)}
+                className="text-gray-500 hover:text-gray-700 text-2xl leading-none"
+              >
+                ×
+              </button>
+            </div>
+            <div className="flex-1 overflow-hidden">
+              <iframe
+                src="/hausanschluss"
+                className="w-full h-full border-0"
+                title="Hausanschluss Journey"
               />
             </div>
           </div>
