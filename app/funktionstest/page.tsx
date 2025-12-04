@@ -25,7 +25,7 @@ export default function Funktionstest() {
         console.log("epilot loaded");
         window.__epilot.init([
           {
-            journeyId: "f5b86af0-b42c-11f0-b212-a166e80a4bb3",
+            journeyId: "dd7cab80-d0f7-11f0-80ec-71bd6f7aaf00",
             mode: "inline",
             scrollToTop: true,
             topBar: true,
@@ -43,12 +43,11 @@ export default function Funktionstest() {
     };
   }, []);
 
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <div
-          id="epilot-journey-f5b86af0-b42c-11f0-b212-a166e80a4bb3"
+          id="epilot-journey-dd7cab80-d0f7-11f0-80ec-71bd6f7aaf00"
           style={{ width: "100%", textAlign: "left" }}
         />
       </main>
