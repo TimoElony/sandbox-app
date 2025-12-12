@@ -85,8 +85,8 @@ export default function Home() {
             />
             <ServiceCard
               icon="🔌"
-              title="Hausanschluss beantragen"
-              description="Beantragen Sie Ihren Hausanschluss schnell und einfach online."
+              title="Hausanschluss prüfen"
+              description="Haben Sie schon einen Hausanschluss? Nur für Eigentümer verfügbar."
               onClick={() => setShowHausanschlussModal(true)}
             />
             <ServiceCard
