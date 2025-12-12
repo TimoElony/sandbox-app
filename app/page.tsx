@@ -18,11 +18,19 @@ export default function Home() {
             </div>
             <span className="text-xl font-bold text-gray-900">Stadtname</span>
           </div>
-          <div className="hidden md:flex gap-6 text-gray-600">
-            <a href="#home" className="hover:text-green-600 transition">Home</a>
-            <a href="#services" className="hover:text-green-600 transition">Services</a>
-            <a href="#about" className="hover:text-green-600 transition">Über uns</a>
-            <a href="#contact" className="hover:text-green-600 transition">Kontakt</a>
+          <div className="hidden md:flex gap-6 items-center">
+            <a href="#home" className="hover:text-green-600 transition text-gray-600">Home</a>
+            <a href="#services" className="hover:text-green-600 transition text-gray-600">Services</a>
+            <a href="#about" className="hover:text-green-600 transition text-gray-600">Über uns</a>
+            <a href="#contact" className="hover:text-green-600 transition text-gray-600">Kontakt</a>
+            <a
+              href="https://loomia.ecp.epilot.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition ml-2"
+            >
+              Mein Portal
+            </a>
           </div>
         </nav>
       </header>
@@ -96,6 +104,12 @@ export default function Home() {
               title="Glasfaser"
               description="Prüfen Sie die Verfügbarkeit von Glasfaseranschlüssen und bestellen Sie Ihr Internet-Paket."
               onClick={() => setShowJourneyModal(true)}
+            />
+            <ServiceCard
+              icon="👤"
+              title="Mein persönliches Portal"
+              description="Zugang zu Ihren persönlichen Daten und dem Status Ihrer laufenden Prozesse."
+              href="https://loomia.ecp.epilot.io/"
             />
           </div>
         </div>
@@ -297,16 +311,16 @@ export default function Home() {
   );
 }
 
-function ServiceCard({ icon, title, description, onClick }: { icon: string; title: string; description: string; onClick?: () => void }) {
+function ServiceCard({ icon, title, description, onClick, href }: { icon: string; title: string; description: string; onClick?: () => void; href?: string }) {
   const content = (
     <>
       <div className="text-4xl mb-4">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
-      {onClick && (
+      {(onClick || href) && (
         <div className="mt-4">
           <span className="text-green-600 font-semibold hover:text-green-700">
-            Jetzt prüfen →
+            {href ? 'Zum Portal →' : 'Jetzt prüfen →'}
           </span>
         </div>
       )}
@@ -318,6 +332,14 @@ function ServiceCard({ icon, title, description, onClick }: { icon: string; titl
       <button onClick={onClick} className="block w-full text-left bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 hover:shadow-lg transition cursor-pointer">
         {content}
       </button>
+    );
+  }
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 hover:shadow-lg transition">
+        {content}
+      </a>
     );
   }
 
